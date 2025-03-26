@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Result Portal</title>
+  <style>
+  /* Funnel container */
+  .funnel-container {
+    width: 100%;
+    height: 20px;
+    background-color: #ddd;
+    margin-top: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+    display: none;  /* Initially hidden */
+  }
+
+  /* Funnel fill animation */
+  .funnel-fill {
+    height: 100%;
+    width: 0%;  /* Starts empty */
+    background-color: #4CAF50;
+    border-radius: 10px;
+    transition: width 2s ease-out;  /* Smooth transition for funnel fill */
+  }
+
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    padding: 20px;
+  }
+
+  .container {
+    width: 50%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+  }
+
+  h1 {
+    text-align: center;
+  }
+
+  select, input, button {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+
+  button {
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background-color: #45a049;
+  }
+
+  .result {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #e0ffe0;
+    border: 1px solid #4CAF50;
+    display: none;
+  }
+
+  .error {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #ffe0e0;
+    border: 1px solid #f44336;
+    display: none;
+  }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Students Final Result Semester-1 </h1>
+
+    <label for="name">Select Your Name:</label>
+    <select id="name">
+      <option value="">Select your name</option>
+     
+      <option value="ABOUDOU BELINGA GLADYS">ABOUDOU BELINGA GLADYS</option>
+      <option value="ACHILLE ARISTIDE NDEBI">ACHILLE ARISTIDE NDEBI</option>
+      <option value="ACHONGWA EMILIO AZEH">ACHONGWA EMILIO AZEH</option>
+      <option value="AICHATOU MOHAMADOU">AICHATOU MOHAMADOU</option>
+      <option value="ASAMYAME JOHNSON">ASAMYAME JOHNSON</option>
+      <option value="ATEYIM THERESIA">ATEYIM THERESIA</option>
+      <option value="AWAFONG SANDRA">AWAFONG SANDRA</option>
+      <option value="AWAH DESTINY NJI">AWAH DESTINY NJI</option>
+      <option value="AYUK ENO WHITNEY">AYUK ENO WHITNEY</option>
+      <option value="BANGWEN BIKOY STEVE B">BANGWEN BIKOY STEVE B</option>
+      <option value="BEYALA TINA DIANA">BEYALA TINA DIANA</option>
+      <option value="CHAKA LEHNA ANU C">CHAKA LEHNA ANU C</option>
+      <option value="CLARENCE BERINYUY">CLARENCE BERINYUY</option>
+      <option value="EKINDE MEKOLLE MUKEA">EKINDE MEKOLLE MUKEA</option>
+      <option value="EUPHRENCIA BI">EUPHRENCIA BI</option>
+      <option value="KIEN RILIBDIS ANYE">KIEN RILIBDIS ANYE</option>
+      <option value="KIKWI PETRA">KIKWI PETRA</option>
+      <option value="KINUY PRECIOUS">KINUY PRECIOUS</option>
+      <option value="KUDI ERASMUS OTEH">KUDI ERASMUS OTEH</option>
+      <option value="KWILABUN DOREEN NGONFAS">KWILABUN DOREEN NGONFAS</option>
+      <option value="LEDRU RAYMOND MICHAEL">LEDRU RAYMOND MICHAEL</option>
+      <option value="MAFOLAC MESSANGA">MAFOLAC MESSANGA</option>
+      <option value="MAMBA NGOY CONSTANT">MAMBA NGOY CONSTANT</option>
+      <option value="MBAKEM STEOHANY MALLE">MBAKEM STEOHANY MALLE</option>
+      <option value="MBOM BONGJOH NOELLA">MBOM BONGJOH NOELLA</option>
+      <option value="MC EDWARD A">MC EDWARD A</option>
+      <option value="MOSAMA AUINOLINE">MOSAMA AUINOLINE</option>
+      <option value="NCHOTU MAVET ABINGHA">NCHOTU MAVET ABINGHA</option>
+      <option value="NDZINENG CHELCY">NDZINENG CHELCY</option>
+      <option value="NEBA FAVOUR BIH">NEBA FAVOUR BIH</option>
+      <option value="NGONG MARINUS LENDZELE">NGONG MARINUS LENDZELE</option>
+      <option value="NGWAIN DOLEN">NGWAIN DOLEN</option>
+      <option value="NKAMENI TCHIO STADILE">NKAMENI TCHIO STADILE</option>
+      <option value="NSOUANFOUO NZEGAH FRENEL">NSOUANFOUO NZEGAH FRENEL</option>
+      <option value="NOUNKEU YIMGA ELVIRA">NOUNKEU YIMGA ELVIRA</option>
+      <option value="NSOM KELLY FULAI">NSOM KELLY FULAI</option>
+      <option value="NUELLA NANGE">NUELLA NANGE</option>
+      <option value="ONDIKE GLADYS MOKABWE">ONDIKE GLADYS MOKABWE</option>
+      <option value="PRECIOUS FAITH AFANWI">PRECIOUS FAITH AFANWI</option>
+      <option value="SONG JERRY AFUMA">SONG JERRY AFUMA</option>
+      <option value="TAMUFOR JULIENNE NING">TAMUFOR JULIENNE NING</option>
+      <option value="TAYO QUINIVETTE EWO">TAYO QUINIVETTE EWO</option>
+      <option value="TEMGOUA TCHANGOUE GEORGY L">TEMGOUA TCHANGOUE GEORGY L</option>
+      <option value="TENDONG GLENDA">TENDONG GLENDA</option>
+      <option value="TIZEE QUINTAR ANYAM N">TIZEE QUINTAR ANYAM N</option>
+      <option value="TOH EINSTEIN">TOH EINSTEIN</option>
+      <option value="TOHMAN EPHISIAN BI">TOHMAN EPHISIAN BI</option>
+      <option value="Sijinge Juliet Mensiy">Sijinge Juliet Mensiy</option>
+      <option value="Mbom Bongjoh Trene Kuboh">Mbom Bongjoh Trene Kuboh</option>
+    </select>
+
+    <label for="password">Enter Your Password:</label>
+    <input type="text" id="password" placeholder="Enter your password">
+
+    <button onclick="getStudentResults()">Get My Results</button>
+
+    <div class="result" id="result"></div>
+    <div class="error" id="error"></div>
+  </div>
+
+  <!-- Funnel animation container -->
+  <div class="funnel-container" id="funnel">
+    <div class="funnel-fill" id="funnel-fill"></div>
+  </div>
+
+  <script>
+  function getStudentResults() {
+    var studentName = document.getElementById('name').value;
+    var studentPassword = document.getElementById('password').value;
+
+    if (!studentName || !studentPassword) {
+      alert("Please enter both name and password.");
+      return;
+    }
+
+    // Show the funnel animation
+    document.getElementById('funnel').style.display = 'block';
+    document.getElementById('funnel-fill').style.width = '0%'; // Reset funnel fill
+
+    // Simulate the funnel filling up (start animation)
+    setTimeout(function() {
+      document.getElementById('funnel-fill').style.width = '100%';  // Fill the funnel
+    }, 100);
+
+    // Replace with your Apps Script Web App URL
+    var url = 'https://script.google.com/macros/s/AKfycbzKIw5YmdWP4nS8KyVVhiN3XEgVnBmq59_lYo3BtI079oCzVKtCjFoIR2R8-859bxnU/exec' + '?name=' + studentName + '&password=' + studentPassword;
+
+    // Fetch data from Google Apps Script
+    fetch(url)
+      .then(response => response.json())
+      .then(data => {
+        if (data.results) {
+          // Display the results if found
+          let resultHtml = "Your Results(Microbiology, Pharmacology, Anatomy):<br><ul>";
+          for (let subject in data.results) {
+            resultHtml += "<li><strong>" + subject + ":</strong> " + data.results[subject] + "</li>";
+          }
+          resultHtml += "</ul>";
+
+          document.getElementById('result').style.display = 'block';
+          document.getElementById('result').innerHTML = resultHtml;
+          document.getElementById('error').style.display = 'none';
+        } else {
+          // Display error message if credentials are incorrect
+          document.getElementById('error').style.display = 'block';
+          document.getElementById('error').innerHTML = data.error;
+          document.getElementById('result').style.display = 'none';
+        }
+
+        // Hide the funnel once the data is fetched
+        document.getElementById('funnel').style.display = 'none';
+      })
+      .catch(error => {
+        document.getElementById('error').style.display = 'block';
+        document.getElementById('error').innerHTML = "An error occurred. Please try again later.";
+        document.getElementById('result').style.display = 'none';
+        // Hide the funnel if there's an error
+        document.getElementById('funnel').style.display = 'none';
+      });
+  }
+  </script>
+
+</body>
+</html>
