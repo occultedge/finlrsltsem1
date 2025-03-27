@@ -182,7 +182,7 @@
       .then(data => {
         if (data.results) {
           // Display the results if found
-          let resultHtml = "Your Results(Microbiology, Pharmacology, Anatomy):<br><ul>";
+          let resultHtml = "Your Final Result Semester 1:<br><ul>";
           for (let subject in data.results) {
             resultHtml += "<li><strong>" + subject + ":</strong> " + data.results[subject] + "</li>";
           }
