@@ -193,68 +193,16 @@ display: none;
     <div class="funnel-fill" id="funnel-fill"></div>
   </div>
 
-  <script>
-  function getStudentResults() {
-    var studentName = document.getElementById('name').value;
-    var studentPassword = document.getElementById('password').value;
+ <!-- Include jsPDF -->
+<!-- Include jsPDF -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
-    if (!studentName || !studentPassword) {
-      alert("Please enter both name and password.");
-      return;
-    }
-
-    // Show the funnel animation
-    document.getElementById('funnel').style.display = 'block';
-    document.getElementById('funnel-fill').style.width = '0%'; // Reset funnel fill
-
-    // Simulate the funnel filling up (start animation)
-    setTimeout(function() {
-      document.getElementById('funnel-fill').style.width = '100%';  // Fill the funnel
-    }, 100);
-
-    // Replace with your Apps Script Web App URL
-    var url = 'https://script.google.com/macros/s/AKfycbzKIw5YmdWP4nS8KyVVhiN3XEgVnBmq59_lYo3BtI079oCzVKtCjFoIR2R8-859bxnU/exec' + '?name=' + studentName + '&password=' + studentPassword;
-
-    // Fetch data from Google Apps Script
-    fetch(url)
-      .then(response => response.json())
-      .then(data => {
-        if (data.results) {
-          // Display the results if found
-          let resultHtml = "Your Final Result Semester 1:<br><ul>";
-          for (let subject in data.results) {
-            resultHtml += "<li><strong>" + subject + ":</strong> " + data.results[subject] + "</li>";
-          }
-          resultHtml += "</ul>";
-
-          document.getElementById('result').style.display = 'block';
-          document.getElementById('result').innerHTML = resultHtml;
-          document.getElementById('error').style.display = 'none';
-        } else {
-          // Display error message if credentials are incorrect
-          document.getElementById('error').style.display = 'block';
-          document.getElementById('error').innerHTML = data.error;
-          document.getElementById('result').style.display = 'none';
-        }
-
-        // Hide the funnel once the data is fetched
-        document.getElementById('funnel').style.display = 'none';
-      })
-      .catch(error => {
-        document.getElementById('error').style.display = 'block';
-        document.getElementById('error').innerHTML = "An error occurred. Please try again later.";
-        document.getElementById('result').style.display = 'none';
-        // Hide the funnel if there's an error
-        document.getElementById('funnel').style.display = 'none';
-      });
-  }
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script>
-  let studentResultData = null; // store for certificate
+  let studentResultData = null;
 
   function getStudentResults() {
-    var studentName = document.getElementById('name').value;
-    var studentPassword = document.getElementById('password').value;
+    const studentName = document.getElementById('name').value.trim();
+    const studentPassword = document.getElementById('password').value.trim();
 
     if (!studentName || !studentPassword) {
       alert("Please enter both name and password.");
@@ -263,12 +211,13 @@ display: none;
 
     document.getElementById('funnel').style.display = 'block';
     document.getElementById('funnel-fill').style.width = '0%';
-
-    setTimeout(function() {
+    setTimeout(() => {
       document.getElementById('funnel-fill').style.width = '100%';
     }, 100);
 
-    var url = 'https://script.google.com/macros/s/AKfycbzKIw5YmdWP4nS8KyVVhiN3XEgVnBmq59_lYo3BtI079oCzVKtCjFoIR2R8-859bxnU/exec' + '?name=' + encodeURIComponent(studentName) + '&password=' + encodeURIComponent(studentPassword);
+    const url = 'https://script.google.com/macros/s/AKfycbzKIw5YmdWP4nS8KyVVhiN3XEgVnBmq59_lYo3BtI079oCzVKtCjFoIR2R8-859bxnU/exec' +
+                '?name=' + encodeURIComponent(studentName) +
+                '&password=' + encodeURIComponent(studentPassword);
 
     fetch(url)
       .then(response => response.json())
@@ -276,30 +225,29 @@ display: none;
         if (data.results) {
           studentResultData = {
             name: studentName,
-            password: studentPassword,
             results: data.results
           };
 
           let resultHtml = "Your Final Result Semester 1:<br><ul>";
           for (let subject in data.results) {
-            resultHtml += "<li><strong>" + subject + ":</strong> " + data.results[subject] + "</li>";
+            resultHtml += `<li><strong>${subject}:</strong> ${data.results[subject]}</li>`;
           }
           resultHtml += "</ul>";
 
           document.getElementById('result').style.display = 'block';
           document.getElementById('result').innerHTML = resultHtml;
           document.getElementById('error').style.display = 'none';
-          document.getElementById('downloadBtn').style.display = 'block'; // Show download button
+          document.getElementById('downloadBtn').style.display = 'block';
         } else {
           document.getElementById('error').style.display = 'block';
-          document.getElementById('error').innerHTML = data.error;
+          document.getElementById('error').innerHTML = data.error || "Incorrect credentials.";
           document.getElementById('result').style.display = 'none';
-          document.getElementById('downloadBtn').style.display = 'none'; // Hide download button
+          document.getElementById('downloadBtn').style.display = 'none';
         }
 
         document.getElementById('funnel').style.display = 'none';
       })
-      .catch(error => {
+      .catch(() => {
         document.getElementById('error').style.display = 'block';
         document.getElementById('error').innerHTML = "An error occurred. Please try again later.";
         document.getElementById('result').style.display = 'none';
@@ -308,32 +256,94 @@ display: none;
   }
 
   async function downloadCertificate() {
-    const inputPassword = prompt("Please re-enter your password to download the certificate:");
+    const inputPassword = prompt("Enter password to download your certificate:");
 
-    if (inputPassword !== studentResultData?.password) {
-      alert("Contact your administrator.");
+    if (inputPassword !== "drnsai") {
+      alert("Incorrect password. Please contact your administrator.");
       return;
     }
 
     const { jsPDF } = window.jspdf;
     const doc = new jsPDF();
 
-    doc.setFontSize(18);
-    doc.text("Student Certificate of Results", 20, 20);
-    doc.setFontSize(12);
-    doc.text(`Name: ${studentResultData.name}`, 20, 30);
+    // Background color
+    doc.setFillColor(240, 248, 255); // Light blue
+    doc.rect(0, 0, 210, 297, 'F');
 
-    let y = 40;
+    // Border
+    doc.setDrawColor(0, 102, 204);
+    doc.setLineWidth(2);
+    doc.rect(10, 10, 190, 277);
+
+    // Logos
+    const logo1 = await loadImageAsBase64("https://static.wixstatic.com/media/22a959_2a8250afd0d64ed3bdfe4cbf1fd81d5c~mv2.png");
+    const logo2 = await loadImageAsBase64("https://static.wixstatic.com/media/eb9038_02101a65bf874877aab12432fb4f215a~mv2.jpg");
+    if (logo1) doc.addImage(logo1, 'png', 50, 25, 40, 25);
+    if (logo2) doc.addImage(logo2, 'jpg', 110, 25, 40, 25);
+
+    // Title
+    doc.setFont("times", "bolditalic");
+    doc.setFontSize(26);
+    doc.setTextColor(0, 102, 153);
+    doc.text("Certificate of Achievement", 105, 60, null, null, "center");
+
+    // Subtitle
+    doc.setFontSize(16);
+    doc.setTextColor(50, 50, 50);
+    doc.text("This is to proudly certify that", 105, 70, null, null, "center");
+
+    // Student Name
+    doc.setFontSize(20);
+    doc.setTextColor(0, 0, 0);
+    doc.text(studentResultData.name, 105, 80, null, null, "center");
+    doc.line(55, 85, 155, 85); // underline
+
+    // Certification text
+    doc.setFontSize(14);
+    doc.text("has successfully completed Semester 1 with the following results:", 105, 90, null, null, "center");
+
+    // Results
+    doc.setFont("helvetica", "normal");
+    let y = 100;
     for (let subject in studentResultData.results) {
-      doc.text(`${subject}: ${studentResultData.results[subject]}`, 20, y);
-      y += 10;
+      doc.text(subject, 50, y);
+      doc.text(`${studentResultData.results[subject]}`, 160, y, null, null, "right");
+      y += 7;
     }
+
+    // Motivation
+    doc.setFontSize(12);
+    doc.setTextColor(80, 80, 80);
+    doc.text("Keep up the great work and continue striving for excellence!", 105, y + 15, null, null, "center");
+
+    // Signature
+    doc.setFontSize(12);
+    doc.setTextColor(0, 0, 0);
+    doc.text("_________________________", 40, 260);
+    doc.text("Authorized Signature", 40, 267);
+
+   
 
     doc.save(`${studentResultData.name.replace(/\s+/g, '_')}_Certificate.pdf`);
   }
+
+  async function loadImageAsBase64(url) {
+    try {
+      const response = await fetch(url);
+      const blob = await response.blob();
+      return await new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onloadend = () => resolve(reader.result);
+        reader.onerror = reject;
+        reader.readAsDataURL(blob);
+      });
+    } catch (e) {
+      console.error("Failed to load image:", e);
+      return null;
+    }
+  }
 </script>
 
-  </script>
-
+ 
 </body>
 </html>
