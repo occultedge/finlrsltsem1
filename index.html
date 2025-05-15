@@ -1,176 +1,349 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
+
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Goat Farming in 7 Days</title>
+  <title>Student Result Portal</title>
   <style>
-    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #fff8f2; color: #333; }
-    header { background: #842c2c; color: white; padding: 20px; text-align: center; }
-    header img { height: 55px; }
-    section { padding: 20px; max-width: 800px; margin: auto; }
-    h1, h2 { color: #a94438; }
-    .features { list-style: none; padding-left: 0; }
-    .features li::before { content: '✅ '; }
-    .price-box { background: #fdf1e6; padding: 20px; border: 2px dashed #b53e3e; margin: 20px 0; text-align: center; }
-    .highlight { background: #fff0ec; padding: 15px; margin-top: 20px; border-left: 4px solid #a94438; }
-    footer { background: #842c2c; color: white; text-align: center; padding: 10px; font-size: 14px; }
-    a { color: #842c2c; font-weight: bold; }
-    .testimonial-track:hover {
-    animation-play-state: paused;
+  /* Funnel container */
+  .funnel-container {
+    width: 100%;
+    height: 20px;
+    background-color: #ddd;
+    margin-top: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+    display: none;  /* Initially hidden */
   }
-</style>
+
+/\* Funnel fill animation */
+.funnel-fill {
+height: 100%;
+width: 0%;  /* Starts empty */
+background-color: #4CAF50;
+border-radius: 10px;
+transition: width 2s ease-out;  /* Smooth transition for funnel fill \*/
+}
+
+body {
+font-family: Arial, sans-serif;
+background-color: #f4f4f4;
+padding: 20px;
+}
+
+.container {
+width: 50%;
+margin: 0 auto;
+padding: 20px;
+background-color: white;
+box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+border-radius: 10px;
+}
+
+h1 {
+text-align: center;
+}
+
+select, input, button {
+width: 100%;
+padding: 10px;
+margin: 10px 0;
+font-size: 16px;
+border-radius: 5px;
+border: 1px solid #ccc;
+}
+
+button {
+background-color: #4CAF50;
+color: white;
+cursor: pointer;
+}
+
+button\:hover {
+background-color: #45a049;
+}
+
+.result {
+margin-top: 20px;
+padding: 10px;
+background-color: #e0ffe0;
+border: 1px solid #4CAF50;
+display: none;
+}
+
+.error {
+margin-top: 20px;
+padding: 10px;
+background-color: #ffe0e0;
+border: 1px solid #f44336;
+display: none;
+} </style>
+
 </head>
 <body>
 
-  <header>
-    <img src="https://static.wixstatic.com/media/eb9038_42367e2c8de9468c8e5ff2bcb7910964~mv2.png/v1/fill/w_194,h_55,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/occuledge%20logo%20.png" alt="Logo">
-    <h1>Goat Farming in 7 Days</h1>
-    <p>From Beginner to Farm-Ready!</p>
-  </header>
+  <div class="container">
+    <h1>Students Final Result Semester-1 </h1>
 
-  <section>
-    <h2>What You'll Learn:</h2>
-    <ul class="features">
-      <li>7 Chapters, 52 Practical Lessons</li>
-      <li>Covers Housing, Feeding, Health, Breeding & More</li>
-      <li>FREE Bonus Pack: 1 Goat eBook + 4 PDF Tools</li>
-      <li>Quizzes and Checklists Included</li>
-      <li>Learn at Your Own Pace (21-Day Access)</li>
-    </ul>
+```
+<label for="name">Select Your Name:</label>
+<select id="name">
+  <option value="">Select your name</option>
+ 
+  <option value="ABOUDOU BELINGA GLADYS">ABOUDOU BELINGA GLADYS</option>
+  <option value="ACHILLE ARISTIDE NDEBI">ACHILLE ARISTIDE NDEBI</option>
+  <option value="ACHONGWA EMILIO AZEH">ACHONGWA EMILIO AZEH</option>
+  <option value="AICHATOU MOHAMADOU">AICHATOU MOHAMADOU</option>
+  <option value="ASAMYAME JOHNSON">ASAMYAME JOHNSON</option>
+  <option value="ATEYIM THERESIA">ATEYIM THERESIA</option>
+  <option value="AWAFONG SANDRA">AWAFONG SANDRA</option>
+  <option value="AWAH DESTINY NJI">AWAH DESTINY NJI</option>
+  <option value="AYUK ENO WHITNEY">AYUK ENO WHITNEY</option>
+  <option value="BANGWEN BIKOY STEVE B">BANGWEN BIKOY STEVE B</option>
+  <option value="BEYALA TINA DIANA">BEYALA TINA DIANA</option>
+  <option value="CHAKA LEHNA ANU C">CHAKA LEHNA ANU C</option>
+  <option value="CLARENCE BERINYUY">CLARENCE BERINYUY</option>
+  <option value="EKINDE MEKOLLE MUKEA">EKINDE MEKOLLE MUKEA</option>
+  <option value="EUPHRENCIA BI">EUPHRENCIA BI</option>
+  <option value="KIEN RILIBDIS ANYE">KIEN RILIBDIS ANYE</option>
+  <option value="KIKWI PETRA">KIKWI PETRA</option>
+  <option value="KINUY PRECIOUS">KINUY PRECIOUS</option>
+  <option value="KUDI ERASMUS OTEH">KUDI ERASMUS OTEH</option>
+  <option value="KWILABUN DOREEN NGONFAS">KWILABUN DOREEN NGONFAS</option>
+  <option value="LEDRU RAYMOND MICHAEL">LEDRU RAYMOND MICHAEL</option>
+  <option value="MAFOLAC MESSANGA">MAFOLAC MESSANGA</option>
+  <option value="MAMBA NGOY CONSTANT">MAMBA NGOY CONSTANT</option>
+  <option value="MBAKEM STEOHANY MALLE">MBAKEM STEOHANY MALLE</option>
+  <option value="MBOM BONGJOH NOELLA">MBOM BONGJOH NOELLA</option>
+  <option value="MC EDWARD A">MC EDWARD A</option>
+  <option value="MOSAMA AUINOLINE">MOSAMA AUINOLINE</option>
+  <option value="NCHOTU MAVET ABINGHA">NCHOTU MAVET ABINGHA</option>
+  <option value="NDZINENG CHELCY">NDZINENG CHELCY</option>
+  <option value="NEBA FAVOUR BIH">NEBA FAVOUR BIH</option>
+  <option value="NGONG MARINUS LENDZELE">NGONG MARINUS LENDZELE</option>
+  <option value="NGWAIN DOLEN">NGWAIN DOLEN</option>
+  <option value="NKAMENI TCHIO STADILE">NKAMENI TCHIO STADILE</option>
+  <option value="NSOUANFOUO NZEGAH FRENEL">NSOUANFOUO NZEGAH FRENEL</option>
+  <option value="NOUNKEU YIMGA ELVIRA">NOUNKEU YIMGA ELVIRA</option>
+  <option value="NSOM KELLY FULAI">NSOM KELLY FULAI</option>
+  <option value="NUELLA NANGE">NUELLA NANGE</option>
+  <option value="ONDIKE GLADYS MOKABWE">ONDIKE GLADYS MOKABWE</option>
+  <option value="PRECIOUS FAITH AFANWI">PRECIOUS FAITH AFANWI</option>
+  <option value="SONG JERRY AFUMA">SONG JERRY AFUMA</option>
+  <option value="TAMUFOR JULIENNE NING">TAMUFOR JULIENNE NING</option>
+  <option value="TAYO QUINIVETTE EWO">TAYO QUINIVETTE EWO</option>
+  <option value="TEMGOUA TCHANGOUE GEORGY L">TEMGOUA TCHANGOUE GEORGY L</option>
+  <option value="TENDONG GLENDA">TENDONG GLENDA</option>
+  <option value="TIZEE QUINTAR ANYAM N">TIZEE QUINTAR ANYAM N</option>
+  <option value="TOH EINSTEIN">TOH EINSTEIN</option>
+  <option value="TOHMAN EPHISIAN BI">TOHMAN EPHISIAN BI</option>
+  <option value="Sijinge Juliet Mensiy">Sijinge Juliet Mensiy</option>
+  <option value="Mbom Bongjoh Trene Kuboh">Mbom Bongjoh Trene Kuboh</option>
+  <option value="NJIKETOMMY STEVE WILFRED">NJIKETOMMY STEVE WILFRED</option>
+```
 
-    <div id="floating-notifications" style="position: fixed; top: 20px; right: 20px; background: #fff0ec; color: #a94438; padding: 10px 15px; border: 1px solid #a94438; border-radius: 8px; font-size: 14px; box-shadow: 0 0 10px rgba(0,0,0,0.1); z-index: 9999; animation: flash 1.5s infinite alternate; display: none;">
-  <span id="notification-message">A learner just joined from Ghana!</span>
-</div>
-<script>
-  const messages = [
-    "Aisha from Ghana just joined the course!",
-    "Chinedu from Nigeria scored 10/10 on the final test!",
-    "Elvis from Cameroon completed all 7 modules!",
-    "Fatima from Abuja paid via MoMo and started learning!",
-    "Linda from Douala passed the exam with distinction!",
-    "Josephine from Accra just downloaded the eBook!",
-    "Emmanuel from Lagos just enrolled!"
-  ];
-  let index = 0;
-  const el = document.getElementById('floating-notifications');
-  const text = document.getElementById('notification-message');
-  setInterval(() => {
-    text.innerText = messages[index];
-    el.style.display = 'block';
-    index = (index + 1) % messages.length;
-  }, 6000);
-</script>
-<style>
-  @keyframes flash {
-    0% { opacity: 1; }
-    100% { opacity: 0.6; }
-  }
-</style>
+<option value="azefackdanellelucresse">azefackdanellelucresse</option>
+<option value="NGA BELINGAMARIE">NGA BELINGAMARIE</option>
+<option value="NGUEVOUANGE">NGUEVOUANGE</option>
+<option value="SIMOSTEVINE">SIMOSTEVINE</option>
+<option value="MBIANDUNKOUAMOU JOSSINET">MBIANDUNKOUAMOU JOSSINET</option>
+<option value="KENFACKSTEPHY LESTERONE">KENFACKSTEPHY LESTERONE</option>
+<option value="TekuEwah">TekuEwah</option>
+<option value="kongnyuyHARIRATU">kongnyuyHARIRATU</option>
+<option value="BanRuth Stevie Miltread">BanRuth Stevie Miltread</option>
+<option value="RAYE NJIFENNAHIMA">RAYE NJIFENNAHIMA</option>
+<option value="BAKWOWISTELLA">BAKWOWISTELLA</option>
+<option value="fonjomidrate">fonjomidrate</option>
+<option value="LincyNgoh">LincyNgoh</option>
+<option value="Mbom-BongjohIrene Kuboh">Mbom-BongjohIrene Kuboh</option>
+<option value="lokengloic jinoir">lokengloic jinoir</option>
+<option value="MosamaMaloba">MosamaMaloba</option>
+<option value="AyukEnow Whitney Ashley Eyong">AyukEnow Whitney Ashley Eyong</option>
+<option value="nforbelinda aba">nforbelinda aba</option>
+<option value="SongNkwainchi">SongNkwainchi</option>
+<option value="tamuntingdanila">tamuntingdanila</option>
+<option value="BEBITELAURA KHAN">BEBITELAURA KHAN</option>
+<option value="Ekinde MekolleMuke Queenie-l'or">Ekinde MekolleMuke Queenie-l'or</option>
+<option value="BakwowiStella">BakwowiStella</option>
+<option value="ayah rashaelanne">ayah rashaelanne</option>
+<option value="NkamenyiStadile">NkamenyiStadile</option>
+<option value="pangwa kemayoumariane carene">pangwa kemayoumariane carene</option>
 
+```
+</select>
 
-      <h2>One-Time Access: $14.49 USD</h2>
-<p><strong>Payable in:</strong> ₦18,000 Naira / 9500 XAF<br><em>Note: Add 5% extra for transfer fees if paying via local currency (Naira/XAF).</em></p>
-      
-      <p style="margin-top: 10px; background: #ffe0cc; padding: 10px; border: 1px dashed #d44a1f; border-radius: 6px;"><strong>🎁 Special Offer:</strong> Mention code <strong>GOAT2025</strong> during WhatsApp confirmation and get a free bonus checklist! <br><em>Offer valid until May 31, 2025.</em></p>
+<label for="password">Enter Your Password:</label>
+<input type="text" id="password" placeholder="Enter your password">
 
-      <!-- Razorpay Button -->
-      <div class="razorpay-embed-btn" data-url="https://pages.razorpay.com/pl_QVDJ6DykFU6TvY/view" data-text="Pay Now" data-color="#528FF0" data-size="large">
-        <script>
-          (function(){
-            var d=document; var x=!d.getElementById('razorpay-embed-btn-js')
-            if(x){ var s=d.createElement('script'); s.defer=!0;s.id='razorpay-embed-btn-js';
-            s.src='https://cdn.razorpay.com/static/embed_btn/bundle.js';d.body.appendChild(s);} else{var rzp=window['__rzp__'];
-            rzp && rzp.init && rzp.init()}})();
-        </script>
-      </div>
+<button onclick="getStudentResults()">Get My Results</button>
 
-      <p><strong>Prefer MoMo Payment?</strong><br>
-      Send payment to <strong>+233209691913</strong> via MTN Mobile Money or Orange Money.<br>
-      After payment, <a href="https://wa.me/233209691913?text=Hi%20I%20have%20paid%20via%20MoMo%20for%20the%20goat%20farming%20course.%20Please%20confirm%20my%20access.">click here to confirm on WhatsApp</a>.</p>
-    </div>
+<div class="result" id="result"></div>
+<!-- Certificate Download Button -->
+<button id="downloadBtn" style="display:none;" onclick="downloadCertificate()">Download Certificate</button>
 
-    
-      <p>💡 <strong>How this course will benefit you:</strong><br>
-      - Learn how to raise healthy goats for meat, milk, and profit.<br>
-      - Avoid common farming mistakes with expert tips and tools.<br>
-      - Understand local feeding options, disease prevention, and breeding strategies.<br>
-      - Start your own goat business with minimal capital and maximum impact.<br>
-      - Get clear, step-by-step guidance — no prior experience needed.</p>
-      <p>🎧 Watch the videos at your own pace, download tools, and get expert answers via WhatsApp every week!</p>
-    </div>
+<div class="error" id="error"></div>
+```
 
-    <p>🎓 Start your farming journey today. Learn from anywhere, anytime.</p>
-    <p>📞 Questions? <a href="https://wa.me/233209691913?text=Hi%20I%20have%20queries%20for%20your%20goat%20farming%20course%20before%20payment.">Message us on WhatsApp</a></p>
-  <h2>Frequently Asked Questions (FAQ)</h2>
-    <div class="highlight">
-      <p><strong>Q: Is the course easy to understand?</strong><br>
-      A: Yes! All lessons are explained in simple language with practical examples. No farming background is needed.</p>
-
-      <p><strong>Q: Can I use my phone to access the course?</strong><br>
-      A: Yes, the entire course can be accessed on your smartphone. You can watch videos, download notes, and chat via WhatsApp.</p>
-
-      <p><strong>Q: How long do I have access to the course?</strong><br>
-      A: You have full access for 21 days from the date of enrollment.</p>
-
-       You will be required to pass a short exam held every month to qualify for the certificate.</p>
-
-      <p><strong>Q: What happens if I have questions during the course?</strong><br>
-      A: You can message us on WhatsApp any time. We answer weekly with expert help.</p>
-    </div>
-
-  <h2>What Our Learners Say</h2>
-<div class="slider-container" style="max-width: 800px; margin: 0 auto; position: relative;">
-  <div class="slider" style="display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 20px; padding-bottom: 20px;">
-    <div class="testimonial-card" style="scroll-snap-align: center;">
-      <img src="https://randomuser.me/api/portraits/women/44.jpg" style="width: 60px; height: 60px; border-radius: 50%;"><br>
-      <strong>Bisheline Naya (Cameroon)</strong><br>
-      “Very practical and easy to follow. I’ve started my own goat pen at home!”
-    </div>
-    <div class="testimonial-card" style="scroll-snap-align: center;">
-      <img src="https://randomuser.me/api/portraits/men/32.jpg" style="width: 60px; height: 60px; border-radius: 50%;"><br>
-      <strong>Stephen O. (Nigeria)</strong><br>
-      “Packed with real knowledge. I liked the feeding and health modules.”
-    </div>
-    <div class="testimonial-card" style="scroll-snap-align: center;">
-      <img src="https://randomuser.me/api/portraits/women/68.jpg" style="width: 60px; height: 60px; border-radius: 50%;"><br>
-      <strong>Grace K. (Ghana)</strong><br>
-      “This course gave me the confidence to start a small goat business.”
-    </div>
-    <div class="testimonial-card" style="scroll-snap-align: center;">
-      <img src="https://randomuser.me/api/portraits/men/15.jpg" style="width: 60px; height: 60px; border-radius: 50%;"><br>
-      <strong>Daniel A. (Nigeria)</strong><br>
-      “After this course, I started with just two goats. Now I’ve expanded to 10 within 3 months!”
-    </div>
-    <div class="testimonial-card" style="scroll-snap-align: center;">
-      <img src="https://randomuser.me/api/portraits/women/19.jpg" style="width: 60px; height: 60px; border-radius: 50%;"><br>
-      <strong>Yvette M. (Cameroon)</strong><br>
-      “I had zero knowledge before. This training gave me confidence and clarity!”
-    </div>
-    <div class="testimonial-card" style="scroll-snap-align: center;">
-      <iframe width="250" height="140" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Video Testimonial" frameborder="0" allowfullscreen style="border-radius: 8px;"></iframe><br>
-      <strong>Live Testimonial</strong><br>
-      “Watch how a learner explains their goat farming success!”
-    </div>
   </div>
-</div>
-<style>
-  .testimonial-card {
-    flex: 0 0 auto;
-    width: 280px;
-    background: white;
-    border-radius: 8px;
-    padding: 15px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    text-align: center;
+
+  <!-- Funnel animation container -->
+
+  <div class="funnel-container" id="funnel">
+    <div class="funnel-fill" id="funnel-fill"></div>
+  </div>
+
+ <!-- Include jsPDF -->
+<!-- Include jsPDF -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+<script>
+  let studentResultData = null;
+
+  function getStudentResults() {
+    const studentName = document.getElementById('name').value.trim();
+    const studentPassword = document.getElementById('password').value.trim();
+
+    if (!studentName || !studentPassword) {
+      alert("Please enter both name and password.");
+      return;
+    }
+
+    document.getElementById('funnel').style.display = 'block';
+    document.getElementById('funnel-fill').style.width = '0%';
+    setTimeout(() => {
+      document.getElementById('funnel-fill').style.width = '100%';
+    }, 100);
+
+    const url = 'https://script.google.com/macros/s/AKfycbzKIw5YmdWP4nS8KyVVhiN3XEgVnBmq59_lYo3BtI079oCzVKtCjFoIR2R8-859bxnU/exec' +
+                '?name=' + encodeURIComponent(studentName) +
+                '&password=' + encodeURIComponent(studentPassword);
+
+    fetch(url)
+      .then(response => response.json())
+      .then(data => {
+        if (data.results) {
+          studentResultData = {
+            name: studentName,
+            results: data.results
+          };
+
+          let resultHtml = "Your Final Result Semester 1:<br><ul>";
+          for (let subject in data.results) {
+            resultHtml += `<li><strong>${subject}:</strong> ${data.results[subject]}</li>`;
+          }
+          resultHtml += "</ul>";
+
+          document.getElementById('result').style.display = 'block';
+          document.getElementById('result').innerHTML = resultHtml;
+          document.getElementById('error').style.display = 'none';
+          document.getElementById('downloadBtn').style.display = 'block';
+        } else {
+          document.getElementById('error').style.display = 'block';
+          document.getElementById('error').innerHTML = data.error || "Incorrect credentials.";
+          document.getElementById('result').style.display = 'none';
+          document.getElementById('downloadBtn').style.display = 'none';
+        }
+
+        document.getElementById('funnel').style.display = 'none';
+      })
+      .catch(() => {
+        document.getElementById('error').style.display = 'block';
+        document.getElementById('error').innerHTML = "An error occurred. Please try again later.";
+        document.getElementById('result').style.display = 'none';
+        document.getElementById('funnel').style.display = 'none';
+      });
   }
-</style>
 
-  </section>
+  async function downloadCertificate() {
+    const inputPassword = prompt("Enter password to download your certificate:");
 
-  <footer>
-    &copy; 2025 Occultedge Goat Farming Course. All rights reserved.
-  </footer>
+    if (inputPassword !== "drnsai") {
+      alert("Incorrect password. Please contact your administrator.");
+      return;
+    }
 
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF();
+
+    // Background color
+    doc.setFillColor(240, 248, 255); // Light blue
+    doc.rect(0, 0, 210, 297, 'F');
+
+    // Border
+    doc.setDrawColor(0, 102, 204);
+    doc.setLineWidth(2);
+    doc.rect(10, 10, 190, 277);
+
+    // Logos
+    const logo1 = await loadImageAsBase64("https://static.wixstatic.com/media/22a959_2a8250afd0d64ed3bdfe4cbf1fd81d5c~mv2.png");
+    const logo2 = await loadImageAsBase64("https://static.wixstatic.com/media/eb9038_02101a65bf874877aab12432fb4f215a~mv2.jpg");
+    if (logo1) doc.addImage(logo1, 'png', 50, 25, 40, 25);
+    if (logo2) doc.addImage(logo2, 'jpg', 110, 25, 40, 25);
+
+    // Title
+    doc.setFont("times", "bolditalic");
+    doc.setFontSize(26);
+    doc.setTextColor(0, 102, 153);
+    doc.text("Certificate of Achievement", 105, 60, null, null, "center");
+
+    // Subtitle
+    doc.setFontSize(16);
+    doc.setTextColor(50, 50, 50);
+    doc.text("This is to proudly certify that", 105, 70, null, null, "center");
+
+    // Student Name
+    doc.setFontSize(20);
+    doc.setTextColor(0, 0, 0);
+    doc.text(studentResultData.name, 105, 80, null, null, "center");
+    doc.line(55, 85, 155, 85); // underline
+
+    // Certification text
+    doc.setFontSize(14);
+    doc.text("has successfully completed Semester 1 with the following results:", 105, 90, null, null, "center");
+
+    // Results
+    doc.setFont("helvetica", "normal");
+    let y = 100;
+    for (let subject in studentResultData.results) {
+      doc.text(subject, 50, y);
+      doc.text(`${studentResultData.results[subject]}`, 160, y, null, null, "right");
+      y += 7;
+    }
+
+    // Motivation
+    doc.setFontSize(12);
+    doc.setTextColor(80, 80, 80);
+    doc.text("Keep up the great work and continue striving for excellence!", 105, y + 15, null, null, "center");
+
+    // Signature
+    doc.setFontSize(12);
+    doc.setTextColor(0, 0, 0);
+    doc.text("_________________________", 40, 260);
+    doc.text("Authorized Signature", 40, 267);
+
+   
+
+    doc.save(`${studentResultData.name.replace(/\s+/g, '_')}_Certificate.pdf`);
+  }
+
+  async function loadImageAsBase64(url) {
+    try {
+      const response = await fetch(url);
+      const blob = await response.blob();
+      return await new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onloadend = () => resolve(reader.result);
+        reader.onerror = reject;
+        reader.readAsDataURL(blob);
+      });
+    } catch (e) {
+      console.error("Failed to load image:", e);
+      return null;
+    }
+  }
+</script>
+
+ 
 </body>
 </html>
